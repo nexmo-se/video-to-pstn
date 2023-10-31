@@ -186,10 +186,11 @@ app.post('/event1', (req, res) => {
 
   // console.log(Date.now(), ">>> /event1 webhook");
 
-  if (req.body.type != undefined && req.body.type === 'transfer'){
+  // if (req.body.type != undefined && req.body.type === 'transfer'){
+  if (req.body.status != undefined && req.body.status === 'answered'){  
 
     const originalUuid = req.query.original_uuid; // incoming call leg to platform
-    const uuid = req.body.uuid;                   // outgoing call leg from platform
+    // const uuid = req.body.uuid;                   // outgoing call leg from platform
 
     vonage.calls.stream.stop(originalUuid,
     (err, res) => {
